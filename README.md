@@ -11,4 +11,4 @@
 
 ## License
 
-Sandbox Operator is under MIT license. See the [LICENSE][LICENSE] file for details.
+Sandbox Operator is under MIT license. See the [LICENSE](LICENSE) file for details.
