@@ -46,6 +46,25 @@ make manifests
 make docker-build docker-push IMG=docker.io/ajgrande924/sandbox-operator:1.0.1
 ```
 
+* Install crd and controller to cluster:
+```sh
+make install
+make deploy IMG=docker.io/ajgrande924/sandbox-operator:1.0.1
+```
+
+* Apply custom resource and check:
+```sh
+kubectl apply -f config/samples/cache_v1_memcached.yaml 
+kubectl logs deployment.apps/sandbox-operator-controller-manager -n default -c manager
+```
+
+* Cleanup cluster:
+```sh
+kubectl delete -f config/samples/cache_v1_memcached.yaml
+kubectl delete deployments,service -l control-plane=controller-manager
+kubectl delete role,rolebinding --all
+```
+
 ## References
 
 * [Operator SDK](https://sdk.operatorframework.io/docs/)
