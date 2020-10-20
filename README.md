@@ -65,6 +65,13 @@ kubectl delete deployments,service -l control-plane=controller-manager
 kubectl delete role,rolebinding --all
 ```
 
+* Build olm bundle:
+```sh
+make bundle
+make bundle-build BUNDLE_IMG=docker.io/ajgrande924/sandbox-operator-bundle:1.0.1
+make docker-push IMG=docker.io/ajgrande924/sandbox-operator-bundle:1.0.1
+```
+
 ## References
 
 * [Operator SDK](https://sdk.operatorframework.io/docs/)
